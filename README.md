@@ -36,7 +36,7 @@ Env
 
 Lang
 
-- it's a limited subset of C for BPF code
+- BPF code can be written in a limited subset of C
 - [ ] for user space language, currently I'd prefer Go because
   - it's easy to learn, faster to write, and cloud native
   - you can't reuse user space code inside bpf code
@@ -56,6 +56,11 @@ Data
 
 - [ ] bop has its own format, but I prefer using [protobuf](https://developers.google.com/protocol-buffers) (except inside kernel) so no logic is needed for serialization and works across language.
 - [ ] a list of proto shard by app and time should be good. A dedicated database for tracing would be better, are there dedicated database for tracing, can we do compute inside database? Many people are using Cassandra, like they did for time series data, and they are wrong for [tsdb](https://xephonhq.github.io/awesome-time-series-database/)
+
+## Related
+
+- [disorderlylabs/box-of-pain](https://github.com/disorderlylabs/box-of-pain)
+- [at15/ldfi-istio](https://github.com/at15/ldfi-istio)
 
 ## References
 
