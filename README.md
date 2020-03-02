@@ -71,6 +71,8 @@ Data
 ### Tracing
 
 - [weaveworks/tcptracer-bpf](https://github.com/weaveworks/tcptracer-bpf) Use kprobes to traces TCP events
+- [ntop/libebpfflow](https://github.com/ntop/libebpfflow) Container traffic visibility library based on eBPF
+  - [nDPI](https://github.com/ntop/nDPI) deep packet inspection
 
 ### Fault injection 
 
@@ -87,6 +89,7 @@ Reading
 ### Fault injection on k8s
 
 - [pingcap/chaos-mesh](https://github.com/pingcap/chaos-mesh) A Chaos Engineering Platform for Kubernetes
+  - [chaos-mesh/bpfki](https://github.com/chaos-mesh/bpfki) A BPF-based kernel fault injection service
 
 ## License
 
