@@ -6,9 +6,9 @@
 // https://stackoverflow.com/questions/1135841/c-multiline-string-literal
 // C++11 Raw String Literal
 const std::string BPF_PROGRAM = R"CODE(
-int kprobe__do_nanosleep()
+int on_do_nanosleep()
 {
-    bpf_trace_printk("Hello, World!\\n");
+    bpf_trace_printk("Hello, World!\n");
     return 0;
 }
 )CODE";
@@ -27,13 +27,20 @@ int main(void) {
 
   std::ifstream pipe("/sys/kernel/debug/tracing/trace_pipe");
   std::string line;
+  auto attach_res = bpf.attach_kprobe("do_nanosleep", "on_do_nanosleep");
+  if (attach_res.code() != 0) {
+    std::cerr << attach_res.msg() << std::endl;
+    return 1;
+  }
+
   while (true) {
     std::cout << "Waiting to read from trace_pipe" << std::endl;
     // FIXME: it seems it can't read anything from the trace_pipe or because no kprobe is attached?
-    // TODO: does the naming convention only works in python bcc?
+    // FIXED: does the naming convention only works in python bcc? Yes! it is _trace_autoload ...
     if (std::getline(pipe, line)) {
         std::cout << line << std::endl;
         std::cout << "Got line" << std::endl;
+        break;
     } else {
         sleep(1);
     }
