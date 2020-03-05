@@ -73,6 +73,7 @@ Data
 - [weaveworks/tcptracer-bpf](https://github.com/weaveworks/tcptracer-bpf) Use kprobes to traces TCP events
 - [ntop/libebpfflow](https://github.com/ntop/libebpfflow) Container traffic visibility library based on eBPF
   - [nDPI](https://github.com/ntop/nDPI) deep packet inspection
+- [iovisor/kubectl-trace](https://github.com/iovisor/kubectl-trace) schedule bpftrace program using kubectl
 
 ### Fault injection 
 
